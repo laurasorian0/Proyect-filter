@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root{
+  --rtc-color-1: black;
+  --rtc-color-2: rgb(187, 213, 255);
+  --rtc-color-3: rgb(54, 82, 81);
+  --rtc-color-4: white;
+  --rtc-color-5: rgb(226, 239, 255);
+  --rtc-border-radius: 8px;
+
+  --rtc-bColor: var(var(--rtc-color-4))
+  --rtc-borderColor: var(var(--rtc-color-3))
+  --rtc-text: var(var(--rtc-color-1))
+
+  --rtc-margin-xs: 5px;
+  --rtc-margin-s: 10px;
+  --rtc-margin-m: 20px;
+  --rtc-margin-l: 30px;
+  --rtc-margin-xl: 40px;
+  --rtc-margin-xxl: 50px;
+
+  --rtc-padding-xs: 5px;
+  --rtc-padding-s: 10px;
+  --rtc-padding-m: 20px;
+  --rtc-padding-l: 30px;
+  --rtc-padding-xl: 40px;
+  --rtc-padding-xxl: 50px;
+
+  --rtc-gap-xs: 5px;
+  --rtc-gap-s: 10px;
+  --rtc-gap-m: 20px;
+  --rtc-gap-l: 30px;
+  --rtc-gap-xl: 40px;
+  --rtc-gap-xxl: 50px;
+}
+
+body {
+  background-color: var(--rtc-bColor);
+  min-height: 100svh;
+}
+
+.navegador ul{
+  display: flex;
+  gap: var(--rtc-gap-l);
+  padding: var(--rtc-padding-m);
+  background-color: var(--rtc-color-2);
+  justify-content: center;
+  max-width: 100%;
+
+}
+
+
+  .navegador{
+    gap: var(--rtc-gap-s);
+  }
+
+
+.navegador ul li {
+  cursor: pointer;
+  transition: all 0.25s;
+  
+}
+
+.navegador ul li:hover {
+  font-weight: bold;
+  text-shadow: 2px 2px 4px var(--rtc-color-4); 
+  transform: scale(1.2);
+}
+
+
+
+
+
+/*Div donde están todos los artículos*/
+#productContainer {
+display: flex;
+flex-wrap: wrap;
+padding: var(--rtc-padding-xl);
+justify-content: center;
+}
+
+/* Div de cada artículo (dentro están los 3 divs)*/
+.product{
+  display: flex;
+  align-items: column;
+  flex-direction: column;
+  padding: var(--rtc-padding-s);
+  gap: var(--rtc-gap-s);
+  transition: all 0.5s;
+  padding-bottom: var(--rtc-padding-l);
+}
+.product:hover{
+  transform: scale(1.2);
+}
+
+/*Div donde está la imagen*/
+.product :first-child {
+  display: flex;
+  flex-wrap: wrap;
+
+  
+}
+/*IMAGEN*/
+.product :first-child img{
+  width: 233px;
+  height: 350px; 
+  object-fit: cover; 
+  border-radius: var(--rtc-border-radius);
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+}
+
+/*Div Nombre y Precio*/
+.divNombrePrecio{
+display: flex;
+height: 30px;
+gap: var(--rtc-gap-l);
+justify-content: center;
+}
+
+/*Div visualizaciones y vendedor*/
+.Info{
+display: flex;
+height: 30px;
+gap: var(--rtc-gap-l);
+flex-direction: row;
+opacity: 0,1;
+font-size: 13px;
+justify-content: center;
+}
+
+h3 {
+  height: 30px;
+}
+
+/*Caja con todos los filtros*/
+.filter {
+display: flex;
+flex-wrap: wrap;
+padding: var(--rtc-padding-xs);
+background-color: var(--rtc-color-5);
+gap: var(--rtc-gap-xs);
+justify-content: center;
+}
+
+
+/*formulario precio*/
+#filterForm {
+  display: flex;
+  gap: var(--rtc-gap-s);
+}
+
+
+#priceFilter{
+  width: 60px;
+}
+
+/*botones*/
+button{
+  width: 50px;
+  cursor: pointer;
+  background-color: var(--rtc-color-2);
+  border: 1px solid var(--rtc-color-4)
+}
+
+
+@media (max-width: 475px) {
+  .navegador ul {
+    font-size: 15px;
+    gap: var(--rtc-gap-s);
+    padding: var(--rtc-padding-xs);
+  }
+  .navegador ul li {
+    font-size: 15px;
+  }
+   .navegador ul {
+    text-align: center;
+}
+  .filter {
+    flex-direction: column;
+    align-items: center;
+    padding: var(--rtc-padding-xs);
+    gap: var(--rtc-gap-xs);
+  }
+  #filterForm {
+    gap: var(--rtc-gap-xs);
+  }
+  #priceFilter {
+    width: 100%; /* O ajusta según tus preferencias */
+  }
+  button {
+    width: 100%; /* O ajusta según tus preferencias */
+  }
+}
+
+
