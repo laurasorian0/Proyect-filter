@@ -155,39 +155,43 @@ function displayProducts(productsToShow) {
   const productContainer = document.getElementById('productContainer');
   productContainer.innerHTML = '';
 
-  productsToShow.forEach(product => {
-    const productElement = document.createElement('div');
-    productElement.classList.add('product');
+  if (productsToShow.length === 0) {
+    const mensajeSinResultados = document.createElement('h2');
+    mensajeSinResultados.textContent = 'No se han encontrado resultados...';
+    productContainer.appendChild(mensajeSinResultados);
+  } else {
+    productsToShow.forEach(product => {
+      const productElement = document.createElement('div');
+      productElement.classList.add('product');
 
-    // Crear elementos para la imagen, nombre y precio
-    const productImage = document.createElement('img');
-    productImage.src = product.image;
-    productImage.alt = product.name;
+      // Crear elementos para la imagen, nombre y precio
+      const productImage = document.createElement('img');
+      productImage.src = product.image;
+      productImage.alt = product.name;
 
-    const divNombrePrecio = document.createElement("div")
-    divNombrePrecio.className = "divNombrePrecio"
+      const divNombrePrecio = document.createElement("div")
+      divNombrePrecio.className = "divNombrePrecio"
 
-    const productDetails = document.createElement('div');
-    productDetails.classList.add('product-details');
+      const productDetails = document.createElement('div');
+      productDetails.classList.add('product-details');
 
-    const productName = document.createElement('h3');
-    productName.textContent = product.name;
+      const productName = document.createElement('h3');
+      productName.textContent = product.name;
 
-    const productPrice = document.createElement('p');
-    productPrice.textContent = `$${product.price}`;
+      const productPrice = document.createElement('p');
+      productPrice.textContent = `$${product.price}`;
 
-    // Agregar elementos al contenedor del producto
-    productDetails.appendChild(productImage); // Añadir la imagen
-    productDetails.appendChild(divNombrePrecio)
-    divNombrePrecio.appendChild(productName);
-    divNombrePrecio.appendChild(productPrice);
+      // Agregar elementos al contenedor del producto
+      productDetails.appendChild(productImage);
+      productDetails.appendChild(divNombrePrecio)
+      divNombrePrecio.appendChild(productName);
+      divNombrePrecio.appendChild(productPrice);
+      productElement.appendChild(productDetails);
 
-    productElement.appendChild(productDetails);
-
-    // Agregar el producto al contenedor principal
-    productContainer.appendChild(productElement);
-  });
-
+      // Agregar el producto al contenedor principal
+      productContainer.appendChild(productElement);
+    });
+  }
 }
 
 
